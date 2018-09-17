@@ -1,16 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-  
-      <script>
+      <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+      <script
           src="https://code.jquery.com/jquery-2.2.4.min.js"
           integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
           crossorigin="anonymous"></script>
-      <script>                                                
+      <script                                                
           src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
           integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
           crossorigin="anonymous"></script>
-      
+     
       <title></title>
         <style>
             .arrow{
@@ -35,7 +35,6 @@
         var $slider_counter = 0;
       
         $(function() {
-        
            $('.slider_container img').eq(1).css('display','block');
            
            $("#front_arrow").on('click', function(){
@@ -53,8 +52,8 @@
            });
            
            $(".arrow").on('click' , function(){
-                 $('.slider_container img').css('display','block');
-                 $('.slider_container img').eq($slider_counter).css('display','none');
+                 $('.slider_container img').css('display','none');
+                 $('.slider_container img').eq($slider_counter).css('display','block');
            });
            
         });
@@ -63,8 +62,8 @@
   
   </script>
   
-        <a class="arrow" href="javacript:void()" id="back_arrow"><img style="width:100px;" src="https://pp.userapi.com/c849328/v849328180/7916f/-hpMR_qcDtw.jpg"></a>
-        <a class="arrow" href="javacript:void()" id="front_arrow"><img style="width:100px;" src="https://pp.userapi.com/c849328/v849328180/79176/VQqLqSICfRs.jpg"></a>
+        <a class="arrow" href="javascript:void()" id="back_arrow"><img style="width:100px;" src="https://pp.userapi.com/c849328/v849328180/7916f/-hpMR_qcDtw.jpg"></a>
+        <a class="arrow" href="javascript:void()" id="front_arrow"><img style="width:100px;" src="https://pp.userapi.com/c849328/v849328180/79176/VQqLqSICfRs.jpg"></a>
     
         <div class="slider_container">
             <img src="https://via.placeholder.com/600x200?text=Image+Number+One" />
