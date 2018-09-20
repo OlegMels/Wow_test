@@ -220,10 +220,6 @@ $("#pdf-next").on('click', function() {
 		showPage(__CURRENT_PAGE++);
 });
 
-/*// Download button
-$("#download-image").on('click', function() {
-	$(this).attr('href', __CANVAS.toDataURL()).attr('download', 'page.png');
-});  */
 
 // Download button
 $("#download-image").on('click', function() {
@@ -253,8 +249,7 @@ $("#download-image").on('click', function() {
           $(this).attr('href')+";blob,"+content;
           saveAs(content, "example.zip");
           });
-                               
-	//$(this).attr('href', __CANVAS.toDataURL()).attr('download', 'page.png');
+
 });
 
 // Previous page of the PDF
