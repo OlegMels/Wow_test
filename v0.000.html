@@ -3,13 +3,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" content-type: application/javascript;charset=utf-8></script>
 
-<script id="lib4pdf1" src="assets\pdf.js"></script>
-<script id="lib4pdf2" src="assets\pdf.worker.js"></script>
+<script id="lib4pdf1"  
+        type="text/javascript" 
+        src="
+      https://rawgit.com/OlegMels/Wow_test/master/assets/pdf.js
+    "></script>
+<script id="lib4pdf2" 
+         type="text/javascript"
+        src="
+      https://rawgit.com/OlegMels/Wow_test/master/assets/pdf.worker.js
+    "></script>
 
-<script id="lib4sav"src="assets\FileSaver.js"></script>
-<script id="lib4zip" src="assets\jszip.min.js"></script>
+<script id="lib4sav"
+        type="text/javascript"
+        src="
+      https://rawgit.com/OlegMels/Wow_test/master/assets/FileSaver.js
+    "></script>
+<script id="lib4zip"
+        type="text/javascript"
+        src="
+      https://rawgit.com/OlegMels/Wow_test/master/assets/jszip.min.js
+    "></script>
 
 <style type="text/css">
 
@@ -187,8 +203,7 @@ function showPage(page_no) {
 	});
 }
 
-// Upon click this should should trigger click on the #file-to-upload file input element
-// This is better than showing the not-good-looking file input element
+// Upon click should trigger click on the #file-to-upload file input element
 $("#upload-button").on('click', function() {
 	$("#file-to-upload").trigger('click');
 });
@@ -223,14 +238,15 @@ $("#pdf-next").on('click', function() {
 
 // Download button
 $("#download-image").on('click', function() {
-     
+          //preparing zip 
           var zip = new JSZip();
           zip.file("index.html", document.getElementsByTagName('html')[0].innerHTML);
+          //images
           var img = zip.folder("images");
           var i;
           for (i = 0; i < __TOTAL_PAGES; i++)
           {
-                              
+                    //adding every page of the document          
                     var framec=__CANVAS.toDataURL();
                     framec=framec.split(',')[1];
                     var iframe = "<iframe width='100%' height='100%' src='" +  framec + "'></iframe>"
@@ -238,11 +254,11 @@ $("#download-image").on('click', function() {
                       
           } 
           var ast= zip.folder("assets");
-          //console.log(typeof  document.getElementById('lib4pdf1'))
-          //ast.file("pdf.js",document.getElementById('lib4pdf1'), 'blob');
-          //ast.file("pdf.worker.js",document.getElementById('lib4pdf2'), 'text/html');
-          //ast.file("FileSaver.js",document.getElementById('lib4sav'), 'base64');
-          //ast.file("jszip.min.js",document.getElementById('lib4zip'), 'base64');
+          //assets (it works fine with Firefox, but crashes during compiling with Chrome)
+          ast.file("pdf.js","https://rawgit.com/OlegMels/Wow_test/master/assets/pdf.js", 'text/javascript');
+          ast.file("pdf.worker.js","https://rawgit.com/OlegMels/Wow_test/master/assets/pdf.worker.js", 'text/javascript');
+          ast.file("FileSaver.js","https://rawgit.com/OlegMels/Wow_test/master/assets/FileSaver.js", 'text/javascript');
+          ast.file("jszip.min.js","https://rawgit.com/OlegMels/Wow_test/master/assets/jszip.min.js", 'text/javascript');
             
           content = zip.generateAsync({type:"blob"})   
           .then(function(content){
